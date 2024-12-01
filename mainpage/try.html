@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Body Styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom right, #2c3e50, #34495e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Background Pattern */
+    .pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right:0;
+      bottom: 0;
+      background: url('/mainpage/image/front-view-man-sweatshirt.png') ;
+      opacity: 0.5;
+    }
+
+    /* Login Box Styling */
+    .login-box {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      z-index: 10;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    /* Login Heading */
+    .login-box h2 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    /* Form Input Styling */
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    input[type="text"]:focus, input[type="password"]:focus {
+      outline: none;
+      box-shadow: 0 0 8px rgba(0, 204, 255, 0.7);
+    }
+
+    /* Button Styling */
+    .login-btn {
+      background-color: #2980b9;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #3498db;
+      transform: scale(1.05);
+    }
+
+    /* Animation for Fade-In Effect */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Product Image Hover Effect */
+    .product-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .product-image img {
+      width: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .product-image:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .login-box {
+        padding: 30px;
+        width: 90%;
+      }
+
+      .login-box h2 {
+        font-size: 1.8em;
+      }
+
+      .login-btn {
+        padding: 14px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Pattern -->
+  <div class="pattern"></div>
+
+  <!-- Login Box -->
+  <div class="login-box">
+    <h2>Login</h2>
+
+    <!-- Product Image Section -->
+    <div class="product-image">
+      <img src="https://via.placeholder.com/600x400?text=Hoodie+%26+T-shirt" alt="Hoodie/T-shirt Print" />
+    </div>
+
+    <!-- Username and Password Fields -->
+    <input type="text" placeholder="Username" required>
+    <input type="password" placeholder="Password" required>
+
+    <!-- Login Button -->
+    <button class="login-btn">Login</button>
+  </div>
+
+</body>
+</html>
