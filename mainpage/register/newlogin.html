@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
+        integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Login/Register</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+        color: #fff;
+        background: linear-gradient(to bottom, #FE783D, #121826);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-wrapper {
+        display: flex;
+    }
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        width: 100%;
+    }
+
+    .form-container {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 30px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        backdrop-filter: blur(15px);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .form-container h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #fff;
+    }
+
+    .form-container input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-container input:focus {
+        border-color: #FE783D;
+        outline: none;
+    }
+
+    .form-container button {
+        width: 100%;
+        padding: 15px;
+        background: #FE783D;
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+        background: #d76931;
+    }
+
+    .form-container p {
+        font-size: 12px;
+        margin-top: 20px;
+        color: #fff;
+    }
+
+    .form-container p a {
+        color: #FE783D;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <!-- Register Slide -->
+            <div class="swiper-slide">
+                <div class="form-container" id="register-form">
+                    <h2>Register</h2>
+                    <form action="#" method="POST">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <button type="submit">Register</button>
+                    </form>
+                    <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+                </div>
+            </div>
+
+            <!-- Login Slide -->
+            <div class="swiper-slide">
+                <div class="form-container" id="login-form">
+                    <h2>Login</h2>
+                    <form action="#" method="POST">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <button type="submit">Login</button>
+                    </form>
+                    <p>Don't have an account? <a href="#" id="register-link">Register</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            effect: 'slide',  // Swiper's default sliding effect
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            // Optional: Add loop to allow continuous swiping between forms
+            loop: true
+        });
+
+        // Register and Login Link Click Events
+        const registerLink = document.getElementById("register-link");
+        const loginLink = document.getElementById("login-link");
+
+        registerLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            swiper.slideTo(0); // Go to Register page
+        });
+
+        loginLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            swiper.slideTo(1); // Go to Login page
+        });
+    </script>
+</body>
+
+</html>
+
+
+</html>
+

@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
+        integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+<style>
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @font-face {
@@ -16,28 +30,6 @@ body {
   font-family: "Poppins", sans-serif;
   color: #fff;
 }
-
-nav {
-  width: 80%;
-  display: flex;
-  gap: 50px;
-  font-size: 12px;
-  position: fixed;
-  top: 10px;
-  right: 20px;
-  z-index: 10;
-}
-
-nav a {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #fff;
-}
-
-nav a.active { text-decoration: underline; }
-nav a i { font-size: 20px; }
 
 .swiper {
   width: 100%;
@@ -71,22 +63,6 @@ h2 {
   font-family: "P22", sans-serif;
   font-size: 115px;
 }
-
-.info, .pricing {
-  position: absolute;
-  font-size: 14px;
-}
-
-.info {
-  left: 20%;
-  bottom: 40%;
-  line-height: 2;
-}
-
-.pricing {
-  right: 10%;
-}
-
 .pricing p, .info p {
   font-weight: 600;
   margin-top: 10px;
@@ -98,23 +74,6 @@ h2 {
   font-weight: 200 !important;
 }
 
-.pricing span { margin-bottom: 10px; }
-.pricing h3 { font-size: 30px; }
-
-.btn-block {
-  display: flex;
-  margin-top: 10px;
-}
-
-.btn, .light-btn {
-  padding: 18px 60px;
-  font-family: "Poppins", sans-serif;
-  background: rgba(0,0,0,0.25);
-  border: none;
-  color: #fff;
-  font-size: 10px;
-  cursor: pointer;
-}
 
 .light-btn { background: rgba(255,255,255,0.1); }
 
@@ -155,3 +114,32 @@ h2 {
   text-decoration: none;
   margin-inline: 10px;
 }
+</style>
+
+<body>
+    <div class="swiper">
+
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background: linear-gradient(to bottom, #FE783D, #121826);">
+               
+                </div>
+               
+        <div class="swiper-pagination"></div>
+        <div class="swiper-thumbs">
+           
+            </div>
+        </div>
+        
+       
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+       
+    </script>
+</body>
+
+</html
