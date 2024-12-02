@@ -35,11 +35,15 @@ nav {
   width: 80%;
   display: flex;
   gap: 50px;
-  font-size: 12px;
+  font-size: 15px;
   position: fixed;
   top: 10px;
   right: 20px;
   z-index: 10;
+}
+nav a:hover{
+  color: #121826;
+  transition: .2s ease-in;
 }
 
 nav a {
@@ -67,10 +71,7 @@ nav a i { font-size: 20px; }
   align-items: center;
 }
 
-.swiper-slide img {
-  object-fit: cover;
-  height: 100%;
-}
+
 
 .swiper-pagination {
   left: 10px !important;
@@ -149,7 +150,7 @@ h2 {
 .scroll, .social {
   position: absolute;
   z-index: 10;
-  font-size: 12px;
+  font-size: 50px;
 }
 
 .scroll {
@@ -161,13 +162,52 @@ h2 {
 .social {
   top: 90%;
   left: 20%;
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .social a {
   color: #fff; 
   text-decoration: none;
   margin-inline: 10px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  position:relative;
+  transition: width 0.4s ease-in-out;
+  width: 40px;
+  right: 25px;
+}
+
+.search-bar input {
+  position: absolute;
+  left: 0;
+  width: 0;
+  padding: 0;
+  font-size: 15px;
+  border: none;
+  outline: none;
+
+  color: #fff;
+  transition: width 0.4s ease-in-out, padding 0.4s ease-in-out;
+  opacity: 1;
+}
+
+.search-bar i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search-bar.active {
+  width: 200px;
+}
+
+.search-bar.active input {
+  width: 100%;
+  padding: 5px 10px;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 }
 </style>
 
@@ -178,7 +218,10 @@ h2 {
             <a href="/mens" class="active">Men</a>
             <a href="#"> Women </a>
             <a href="#"> Customise </a>
-            <a href="#" style="margin-left: auto;"> <i class="ri-search-line"></i> Search </a>
+            <a href="#" class="search-bar" style="margin-left: auto;">
+              <input type="text" />
+              <i class="ri-search-line"></i>Search
+            </a>
             <a href="#"> My Account </a>
             <a href="#"> <i class="ri-shopping-bag-fill"></i> </a>
         </nav>
@@ -283,6 +326,15 @@ h2 {
         gsap.from('.swiper-thumbs', {
             y: 20, opacity: 0, delay: 0.5
         })
+
+
+
+        const searchBar = document.querySelector('.search-bar');
+
+searchBar.addEventListener('click', (e) => {
+  e.preventDefault(); // Prevent default anchor behavior
+  searchBar.classList.toggle('active');
+});
 
     </script>
 </body>
