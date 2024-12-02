@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
+        integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Enhanced Payment Page</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: #fff;
+            background-color: #121826;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #FE783D;
+        }
+
+        .payment-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            background: #1A1F2A;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .payment-section .left, .payment-section .right {
+            flex: 1;
+        }
+
+        .payment-section .left {
+            border-right: 2px solid #FE783D;
+            padding-right: 20px;
+        }
+
+        .payment-section h2 {
+            color: #FE783D;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #FFF;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #FE783D;
+            background: #121826;
+            color: #FFF;
+            font-size: 16px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .radio-group input {
+            accent-color: #FE783D;
+        }
+
+        .card-details, .upi-qr {
+            display: none;
+        }
+
+        .order-summary {
+            background: #1A1F2A;
+            padding: 15px;
+            border-radius: 10px;
+            color: #FFF;
+        }
+
+        .order-summary h3 {
+            color: #FE783D;
+            margin-bottom: 10px;
+        }
+
+        .order-summary .total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FE783D;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #FE783D;
+            border: none;
+            border-radius: 5px;
+            color: #FFF;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button-container button:hover {
+            background: #FF884D;
+        }
+
+        .selected-item {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .selected-item img {
+            max-width: 200px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Payment Page</h1>
+        </div>
+
+        <!-- Selected Item -->
+        <div class="selected-item">
+            <h2>Selected Item</h2>
+            <img src="https://via.placeholder.com/200" alt="Selected Item">
+        </div>
+
+        <!-- Payment Section -->
+        <div class="payment-section">
+            <!-- Left Section -->
+            <div class="left">
+                <h2>Payment Methods</h2>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="payment-method" value="upi" checked onchange="togglePaymentOption(this)">
+                        UPI (e.g., Google Pay, PhonePe)
+                    </label>
+                    <label>
+                        <input type="radio" name="payment-method" value="card" onchange="togglePaymentOption(this)">
+                        Credit Card / Debit Card
+                    </label>
+                    <label>
+                        <input type="radio" name="payment-method" value="cod" onchange="togglePaymentOption(this)">
+                        Cash on Delivery
+                    </label>
+                </div>
+
+                <!-- UPI Details -->
+                <div class="upi-qr">
+                    <h2>Scan to Pay</h2>
+                    <img src="https://via.placeholder.com/150" alt="UPI QR Code">
+                </div>
+
+                <!-- Card Details -->
+                <div class="card-details">
+                    <h2>Card Details</h2>
+                    <div class="input-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                    </div>
+                    <div class="input-group">
+                        <label for="expiry-date">Expiry Date</label>
+                        <input type="text" id="expiry-date" placeholder="MM/YY">
+                    </div>
+                    <div class="input-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="right">
+                <h2>Order Summary</h2>
+                <div class="order-summary">
+                    <div>
+                        <strong>Item:</strong> 2x T-Shirts<br>
+                        <strong>Price:</strong> ₹1000.00
+                    </div>
+                    <hr style="margin: 10px 0; border-color: #FE783D;">
+                    <div class="total">
+                        Total: ₹1000.00
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button>Confirm and Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between payment options
+        function togglePaymentOption(element) {
+            const upiQr = document.querySelector('.upi-qr');
+            const cardDetails = document.querySelector('.card-details');
+
+            if (element.value === 'upi') {
+                upiQr.style.display = 'block';
+                cardDetails.style.display = 'none';
+            } else if (element.value === 'card') {
+                upiQr.style.display = 'none';
+                cardDetails.style.display = 'block';
+            } else {
+                upiQr.style.display = 'none';
+                cardDetails.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
