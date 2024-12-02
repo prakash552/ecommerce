@@ -100,7 +100,7 @@
             accent-color: #FE783D;
         }
 
-        .card-details, .upi-qr {
+        .card-details, .upi-qr, .upi-id-input {
             display: none;
         }
 
@@ -151,6 +151,36 @@
             max-width: 200px;
             border-radius: 10px;
         }
+
+        .upi-id-input input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #FE783D;
+            background: #121826;
+            color: #FFF;
+            font-size: 16px;
+        }
+
+        .verify-btn {
+            background-color: #FF6347;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .verify-btn:hover {
+            background-color: #FF4500;
+        }
+
+        .verification-status {
+            margin-top: 10px;
+            color: #32CD32;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -191,6 +221,18 @@
                 <div class="upi-qr">
                     <h2>Scan to Pay</h2>
                     <img src="https://via.placeholder.com/150" alt="UPI QR Code">
+                </div>
+
+                <!-- UPI ID Input -->
+                <div class="upi-id-input">
+                    <h2>Enter Your UPI ID</h2>
+                    <div class="input-group">
+                        <label for="upi-id">UPI ID</label>
+                        <input type="text" id="upi-id" placeholder="example@upi">
+                    </div>
+                    <!-- Verify Button -->
+                    <button class="verify-btn" onclick="verifyUPI()">Verify UPI</button>
+                    <div id="verification-status" class="verification-status"></div>
                 </div>
 
                 <!-- Card Details -->
@@ -235,20 +277,40 @@
         // Toggle between payment options
         function togglePaymentOption(element) {
             const upiQr = document.querySelector('.upi-qr');
+            const upiIdInput = document.querySelector('.upi-id-input');
             const cardDetails = document.querySelector('.card-details');
 
             if (element.value === 'upi') {
-                upiQr.style.display = 'block';
+                upiQr.style.display = 'none';
+                upiIdInput.style.display = 'block';
                 cardDetails.style.display = 'none';
             } else if (element.value === 'card') {
                 upiQr.style.display = 'none';
+                upiIdInput.style.display = 'none';
                 cardDetails.style.display = 'block';
             } else {
                 upiQr.style.display = 'none';
+                upiIdInput.style.display = 'none';
                 cardDetails.style.display = 'none';
+            }
+        }
+
+        // Function to verify UPI ID
+        function verifyUPI() {
+            const upiId = document.getElementById('upi-id').value;
+            const verificationStatus = document.getElementById('verification-status');
+            const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+$/; // Basic regex for UPI ID validation
+
+            if (upiId.match(regex)) {
+                verificationStatus.textContent = "UPI ID Verified Successfully!";
+                verificationStatus.style.color = "#32CD32"; // Success color
+            } else {
+                verificationStatus.textContent = "Invalid UPI ID. Please try again.";
+                verificationStatus.style.color = "#FF6347"; // Error color
             }
         }
     </script>
 </body>
 
 </html>
+
